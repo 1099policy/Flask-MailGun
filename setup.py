@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Flask-MailGun
+Flask-MailGun3
 Flask extension to use the Mailgun email parsing service
 for sending and receving emails
 """
-try: # for pip >= 10
+try:  # for pip >= 10
     from pip._internal.req import parse_requirements
-except ImportError: # for pip <= 9.0.3
+except ImportError:  # for pip <= 9.0.3
     from pip.req import parse_requirements
 
 from io import open
@@ -64,4 +64,3 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )
-

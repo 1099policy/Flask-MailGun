@@ -11,10 +11,9 @@ import random
 import string
 from time import time
 from tests.fixtures import get_attachment
-from flask_mailgun3.message import Message
+from flask_mailgun.message import Message
 
-url_safe_chars = string.ascii_lowercase + \
-    string.ascii_uppercase + string.digits
+url_safe_chars = string.ascii_lowercase + string.ascii_uppercase + string.digits
 
 
 def random_string(length):
@@ -26,7 +25,7 @@ def sign_email(email, mailgun):
     timestamp = int(time())
     api_key = mailgun.mailgun_api.api_key
     message = '{}{}'.format(timestamp, token).encode('utf-8')
-
+                                 
     signature = hmac.new(key=api_key,
                          msg=message,
                          digestmod=hashlib.sha256).hexdigest()

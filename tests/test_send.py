@@ -7,7 +7,7 @@ Created on Fri Apr 21 12:06:50 2017
 import unittest
 
 from tests import MailgunTestBase
-from flask_mailgun3.message import Message
+from flask_mailgun.message import Message
 
 
 class SendMessageTest(MailgunTestBase):

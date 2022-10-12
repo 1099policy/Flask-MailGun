@@ -9,7 +9,7 @@ import os
 import shutil
 import tempfile
 from werkzeug.datastructures import FileStorage
-from flask_mailgun3.attachment import save_attachments
+from flask_mailgun.attachment import save_attachments
 from tests.fixtures import get_attachment
 from tests import MailgunTestBase
 
@@ -39,7 +39,6 @@ class SaveAttachmentTest(MailgunTestBase):
         shutil.rmtree(testdir)
         with self.assertRaises(OSError):
             os.listdir(testdir)
-
 
 if __name__ == '__main__':
     unittest.main()
