@@ -8,7 +8,7 @@ from __future__ import print_function
 import unittest
 import time
 import json
-from flask_mailgun.utils import MailGunException
+from flask_mailgun3.utils import MailGunException
 from mock import MagicMock
 
 from collections import namedtuple
@@ -74,7 +74,7 @@ class ReceiveMessageSyncTest(ReceiveMessageCallbacksTest):
         time.sleep(1)
         self.assertEqual(self.receve_email_mock.call_count, 1)
         self.assertEqual(self.attachment_mock.call_count, 1)
-        print ("received email")
+        print("received email")
 
 
 class ReceiveMessageAsyncTest(ReceiveMessageCallbacksTest):
@@ -98,7 +98,7 @@ class ReceiveMessageAsyncTest(ReceiveMessageCallbacksTest):
         time.sleep(1)
         # self.assertEqual(self.receve_email_mock.call_count, 2)
         # self.assertEqual(self.attachment_mock.call_count, 2)
-        print ("received 2 emails")
+        print("received 2 emails")
 
     def test_receive_100_messages(self):
         for i in range(100):
@@ -107,7 +107,7 @@ class ReceiveMessageAsyncTest(ReceiveMessageCallbacksTest):
             self.assertEqual(response.status_code, 200)
         # self.assertEqual(self.receve_email_mock.call_count, 100)
         # self.assertEqual(self.attachment_mock.call_count, 100)
-        print ("received 100 emails")
+        print("received 100 emails")
 
 
 if __name__ == '__main__':

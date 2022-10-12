@@ -8,8 +8,8 @@ import unittest
 from mock import patch, MagicMock
 
 from flask import Flask
-import flask_mailgun
-import flask_mailgun.api
+import flask_mailgun3
+import flask_mailgun3.api
 from tests import config
 
 
@@ -23,7 +23,7 @@ class MailgunTestBase(unittest.TestCase):
     def setUp(self):
         self.app = app = get_app('test')
         self.appclient = app.test_client()
-        self.mailgun = flask_mailgun.MailGun()
+        self.mailgun = flask_mailgun3.MailGun()
         self.mailgun.init_app(app)
         self.post_patcher = patch('flask_mailgun.api.requests.post')
         self.mailgun.mailgun_api.list_routes = MagicMock(return_value=[])
@@ -34,6 +34,7 @@ class MailgunTestBase(unittest.TestCase):
 
     def test_allways(self):
         pass
+
 
 if __name__ == '__main__':
     unittest.main()
