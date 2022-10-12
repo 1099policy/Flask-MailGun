@@ -30,7 +30,7 @@ except AttributeError:
     # pip > 20
     requirements = [str(ir.requirement) for ir in requirements]
 
-__NAME__ = 'Flask-MailGun3'
+__NAME__ = 'Flask-MailGun'
 __doc__ = readme
 __author__ = 'Amey-SAM'
 __license__ = 'MIT'
@@ -44,8 +44,8 @@ setup(
     long_description=__doc__,
     author=__author__,
     author_email='richard.mathie@amey.co.uk',
-    url='https://github.com/amey-sam/Flask-MailGun',
-    download_url='https://github.com/amey-sam/Flask-MailGun/tarball/master',
+    url='https://github.com/1099policy/Flask-MailGun',
+    download_url='https://github.com/1099policy/Flask-MailGun/tarball/master',
     # py_modules=['flask_mailgun'],
     packages=['flask_mailgun'],
     install_requires=requirements,
