@@ -13,6 +13,10 @@ except ImportError:
 with open("Version", encoding="utf-8") as f:
     version = next(f).strip()
 
+# Ensure version is a valid PEP 440 version string
+if not version:
+    raise ValueError("Version file is empty")
+
 with open("README.rst", encoding="utf-8") as f:
     readme = f.read()
 
