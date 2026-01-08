@@ -22,7 +22,14 @@ MAILGUN_API_URL = 'https://api.mailgun.net/v3'
 class MailGunAPI(object):
     def __init__(self, config):
         self.domain = config['MAILGUN_DOMAIN']
-        self.api_key = config['MAILGUN_API_KEY'].encode('utf-8')
+        api_key = config['MAILGUN_API_KEY']
+        # Store as bytes for HMAC operations, but keep string version for auth
+        if isinstance(api_key, bytes):
+            self.api_key = api_key
+            self.api_key_str = api_key.decode('utf-8')
+        else:
+            self.api_key = api_key.encode('utf-8')
+            self.api_key_str = api_key
         self.api_url = config.get('MAILGUN_API_URL',
                                   MAILGUN_API_URL)
         self.route = config.get('MAILGUN_ROUTE', 'uploads')
@@ -162,4 +169,4 @@ class MailGunAPI(object):
 
     @property
     def auth(self):
-        return 'api', self.api_key
+        return 'api', self.api_key_str
