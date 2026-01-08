@@ -10,21 +10,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-# Compatibility shim for setuptools 71+ with old packaging < 22.0
-try:
-    import packaging.utils
-    import inspect
-
-    _orig_canonicalize = packaging.utils.canonicalize_version
-    if "strip_trailing_zero" not in inspect.signature(_orig_canonicalize).parameters:
-
-        def _compat_canonicalize(version, strip_trailing_zero=True):
-            return _orig_canonicalize(version)
-
-        packaging.utils.canonicalize_version = _compat_canonicalize
-except Exception:
-    pass
-
 with open("Version", encoding="utf-8") as f:
     version = next(f).strip()
 
